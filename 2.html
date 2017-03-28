@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div id="app" class="container">
+			
+		<div> 
+				
+				<h1>
+
+					{{name}} : {{reversedName}}
+
+				</h1>
+
+				<h2 v-text="name + ': '+ reversedName"></h2>
+
+				<button class="btn">Saludar</button>
+		</div>
+
+		</div>
+
+		<script src="https://unpkg.com/vue@2.1.8"></script>
+
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data: {
+					name:'Nacho',
+					team: true,
+					project: 'styde'
+				},
+				computed:{
+					reversedName: function(){
+						return this.name.split('').reverse().join('');
+					}
+				}
+			});
+
+			$('button').click(function () {
+				$('h1').text('Hola, {{name}}');
+			});
+
+		</script>
+
+	</body>
+</html>
